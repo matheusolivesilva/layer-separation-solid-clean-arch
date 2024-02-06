@@ -1,8 +1,10 @@
-import axios from 'axios';
 import CreateTransacion from '../src/application/CreateTransaction';
 import GetTransaction from '../src/application/GetTransaction';
+import TransactionDatabaseRepository from '../src/infra/repository/TransactionDatabaseRepository';
 
 test('Should create a transaction', async () => {
+  const transactionRepository = new TransactionDatabaseRepository();
+
   const code = `${Math.floor(Math.random() * 1000)}`;
 
   const input  = {
@@ -12,7 +14,7 @@ test('Should create a transaction', async () => {
     paymentMethod: 'credit_card'
   };
 
-  const createTransaction = new CreateTransacion();
+  const createTransaction = new CreateTransacion(transactionRepository);
   await createTransaction.execute(input);
 
   const getTransaction = new GetTransaction() ;
