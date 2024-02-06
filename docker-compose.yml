@@ -6,8 +6,8 @@ services:
       - 3000:3000
     volumes:
       - .:/home/node/app
-    working_dir: /app 
-    command: bash -c "npm install && npm start"
+    working_dir: /home/node/app 
+    command: bash -c "npm install && tail -f /dev/null"
     depends_on:
       - postgres
   postgres:
