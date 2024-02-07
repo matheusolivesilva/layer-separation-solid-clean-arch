@@ -7,7 +7,7 @@ services:
     volumes:
       - .:/home/node/app
     working_dir: /home/node/app 
-    command: bash -c "npm install && tail -f /dev/null"
+    command: bash -c "npm install && npm start"
     depends_on:
       - postgres
   postgres:
