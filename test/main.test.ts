@@ -22,7 +22,7 @@ test('Should create a transaction', async () => {
   const transaction = response.data;
   expect(transaction.code).toBe(code);
   expect(transaction.amount).toBe(1000);
-  expect(transaction.payment_method).toBe('credit_card');
+  expect(transaction.paymentMethod).toBe('credit_card');
   expect(transaction.installments).toHaveLength(12);
   expect(transaction.installments[0].amount).toBe(83.33);
   expect(transaction.installments[11].amount).toBe(83.37)
