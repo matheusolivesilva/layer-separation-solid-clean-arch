@@ -1,12 +1,14 @@
 import ExpressAdapter from './infra/api/ExpressAdapter';
 import Router from './infra/api/Router';
 import PostgresSQLAdapter from './infra/database/PostgreSQLAdapter';
-import TransactionDatabaseRepository from './infra/repository/TransactionDatabaseRepository';
-import TransactionMemoryRepository from './infra/repository/TransactionMemoryRepository';
+import TransactionRepositoryFactory from './infra/repository/TransactionRepositoryFactory';
+
+console.log();
 
 const connection = new PostgresSQLAdapter();
-// const transactionRepository = new TransactionDatabaseRepository(connection);
-const transactionRepository = new TransactionMemoryRepository();
+const repositoryFactory = new TransactionRepositoryFactory(connection)
+const transactionRepository = repositoryFactory.create()
+
 const httpServer = new ExpressAdapter();
 const router = new Router(httpServer, transactionRepository);
 router.init();

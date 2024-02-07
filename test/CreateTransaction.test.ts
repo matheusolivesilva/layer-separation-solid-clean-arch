@@ -1,13 +1,12 @@
 import CreateTransacion from '../src/application/CreateTransaction';
 import GetTransaction from '../src/application/GetTransaction';
 import PostgresSQLAdapter from '../src/infra/database/PostgreSQLAdapter';
-import TransactionDatabaseRepository from '../src/infra/repository/TransactionDatabaseRepository';
-import TransactionMemoryRepository from '../src/infra/repository/TransactionMemoryRepository';
+import TransactionRepositoryFactory from '../src/infra/repository/TransactionRepositoryFactory';
 
 test('Should create a transaction', async () => {
   const connection = new PostgresSQLAdapter()
-  // const transactionRepository = new TransactionDatabaseRepository(connection);
-  const transactionRepository = new TransactionMemoryRepository();
+  const repositoryFactory = new TransactionRepositoryFactory(connection)
+  const transactionRepository = repositoryFactory.create()
 
   const code = `${Math.floor(Math.random() * 1000)}`;
 
