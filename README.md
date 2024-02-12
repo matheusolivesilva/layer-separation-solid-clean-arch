@@ -1,6 +1,21 @@
 # Layer Separation with SOLID and Clean Architecture
 This project uses the business domain of finance transactions (i. e. when you have payment transactions in an ecommerce) to apply SOLID principles and some principles of Clean Arch.
 
+
+## Table of Contents
+  - [Requirements](#-requirements)
+  - [How is this project organized?](#️%EF%B8%8F-how-is-this-project-organized)
+    - [Domain Layer: Entities](#domain-layer-entities)
+    - [Application Layer: Use Cases](#application-layer-use-cases)
+    - [I/O (Frameworks and Adapters Layer): API, Database and Repository](#io-frameworks-and-adapters-layer-api-database-and-repository)
+    - [Tests](#tests)
+  - [Features](#-features)
+  - [How to Run?](#-how-to-run)
+    - [Using Docker](#-using-docker)
+  - [Testing](#-testing)
+  - [Made With](#️%EF%B8%8F-made-with)
+  - [Author](#-author)
+
 ## 📝 Requirements
 
 - [Docker](https://www.docker.com/get-started/)
@@ -8,6 +23,7 @@ This project uses the business domain of finance transactions (i. e. when you ha
 
 ## ⚙️ How is this project organized?
 As stated previously, this project is using principles of Clean Arch to separate the software layers, these layers we can see below:
+
 ![image](https://github.com/ByINTI/INTI_backend/assets/19143379/08d56306-c2c0-45fd-b9db-3a0a62fc6356)
 
 
